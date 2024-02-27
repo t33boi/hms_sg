@@ -39,24 +39,24 @@ def registerVIew(request):
     password2 = request.POST.get('password2')
     
     if password2 == password1:
-        # try:
-        user = Person.objects.create_user(
-            username=username,
-            email=email,
-            password=password1,
-            phoneNumber=phone,
-            address=address,
-        )
-        group = Group.objects.get(name='user')
-        user.groups.add(group)
-        user.save()
-        user = authenticate(request,username=username,password=password1)
-        login(request,user)
-        messages.success(request,'Account Successfully Created!')
-        return redirect('home')
-        # except:     
-        #     messages.error(request,'Username already Exists!')
-        #     return redirect('login_register')
+        try:
+            user = Person.objects.create_user(
+                username=username,
+                email=email,
+                password=password1,
+                phoneNumber=phone,
+                address=address,
+            )
+            group = Group.objects.get(name='user')
+            user.groups.add(group)
+            user.save()
+            user = authenticate(request,username=username,password=password1)
+            login(request,user)
+            messages.success(request,'Account Successfully Created!')
+            return redirect('home')
+        except:     
+            messages.error(request,'Username already Exists!')
+            return redirect('login_register')
     else:
         messages.error(request,'Passwords don\'t Match!')
     
