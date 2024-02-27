@@ -46,7 +46,7 @@ class Room(models.Model):
         null=True, help_text='Specify number of Beds')
     no_of_bath = models.PositiveBigIntegerField(
         null=True, help_text='Specify number of Baths')
-    photos = models.ImageField(upload_to='images/', help_text='Upload photos of the room.',default='images/room-1.jpg')
+    photos = models.ImageField(upload_to='images/rooms/', help_text='Upload photos of the room.',default='images/room-1.jpg')
     # additional_services = models.TextField(help_text='Specify any additional services offered with the room.')
     # accessibility_features = models.TextField(help_text='Describe any accessibility features of the room.')
     # cancellation_policy = models.TextField(help_text='Describe the hotel\'s cancellation policy for bookings made for this room.')
