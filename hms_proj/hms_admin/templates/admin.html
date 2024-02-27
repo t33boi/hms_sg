@@ -1,0 +1,76 @@
+{% extends "dashboard.html" %}
+{% block content %}
+<div class="text-center">
+    <h1>DASHBOARD</h1>
+</div>
+<div class="container-fluid w-100 mt-5">
+    <div class=" row justify-content-evenly">
+        <div class="card text-center py-3 mb-3" style="width: 18rem;">
+            <div class="card-body">
+                <p class="card-text">NO. OF USERS</p>
+                <h5 class="card-title fs-1">0</h5>
+                <a href="#" class="btn" style="background-color: #0f172b; color: white;">VIEW ALL</a>
+            </div>
+        </div>
+        <div class="card text-center py-3 mb-3" style="width: 18rem;">
+            <div class="card-body">
+                <p class="card-text">NO. OF ROOMS</p>
+                <h5 class="card-title fs-1">0</h5>
+                <a href="#" class="btn" style="background-color: #0f172b; color: white;">VIEW ALL</a>
+            </div>
+        </div>
+        <div class="card text-center py-3 mb-3" style="width: 18rem;">
+            <div class="card-body">
+                <p class="card-text">NO. OF BOOKED ROOMS</p>
+                <h5 class="card-title fs-1">0</h5>
+                <a href="#" class="btn" style="background-color: #0f172b; color: white;">VIEW ALL</a>
+            </div>
+        </div>
+    </div>
+</div>
+<table class="table table-bordered">
+   <caption class="caption-top fw-bold">RECENT USERS</caption>
+   <tr>
+    <th>S/N</th>
+    <th>username</th>
+    <th>Email</th>
+    <th>Phone</th>
+   </tr>
+   <tr>
+    <td>1</td>
+    <td>teeb</td>
+    <td>ett@gmail</td>
+    <td>56789</td>
+   </tr>
+</table>
+<table class="table table-bordered">
+    <caption class="caption-top fw-bold">RECENT ROOMS</caption>
+    <tr>
+     <th>S/N</th>
+     <th>TYPE</th>
+     <th class="w-25 d-inline-block">desc</th>
+     <th>STATUS</th>
+    </tr>
+    <tr>
+     <td>1</td>
+     <td>teeb</td>
+     <td class="w-25 d-inline-block text-truncate" data-toggle="tooltip" title="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laborum animi sunt ut iure, harum neque nihil ex doloribus autem perferendis corporis possimus, libero veniam unde perspiciatis nulla. Quod, at eius.">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laborum animi sunt ut iure, harum neque nihil ex doloribus autem perferendis corporis possimus, libero veniam unde perspiciatis nulla. Quod, at eius.</td>
+     <td>56789</td>
+    </tr>
+ </table>
+ <table class="table table-bordered">
+    <caption class="caption-top fw-bold">RECENT BOOKED ROOM</caption>
+    <tr>
+     <th>S/N</th>
+     <th>uuid</th>
+     <th>TYPE</th>
+     <th>Date</th>
+    </tr>
+    <tr>
+     <td>1</td>
+     <td>teeb</td>
+     <td>ett@gmail</td>
+     <td>56789</td>
+    </tr>
+ </table>
+{% endblock content %}

@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+
+   <!-- Page Header Start -->
+   <div class="container-fluid page-header mb-5 p-0" style="background-image: url( {% static "/images/carousel-1.jpg" %} );">
+    <div class="container-fluid page-header-inner py-5">
+        <div class="container text-center pb-5">
+            <h1 class="display-3 text-white mb-3 animated slideInDown">Check Out</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center text-uppercase">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                    <li class="breadcrumb-item text-white active" aria-current="page">CheckOut</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div>
+<!-- Page Header End -->
+
+
+<div class="container justify-content-center">
+    
+    {% for room in rooms %}
+
+    <div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src=" {{room.room.photos.url}} " class="img-fluid rounded-start" alt="...">
+            
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">{{room.room.room_type.upper}}</h5>
+              <p class="card-text">{{room.room.description}}</p>
+              <div class="d-flex">
+                <a href="#" class="btn btn-primary me-2">BOOK NOW</a>
+                    
+                 <a href=" {% url "check_out_delete" room.id %} " class="btn btn-danger">CANCEL</a>
+            </div>
+              <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <!-- <div class="card w-75 my-5" style="width: 18rem;">
+        <img style="width: 100%;" src=" {{room.room.photos.url}} " class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{room.room.room_type.upper}}</h5>
+            <p class="card-text"> {{room.room.description}} </p>
+            <div class="d-flex">
+                <a href="#" class="btn btn-primary me-2">BOOK NOW</a>
+                    
+                 <a href=" {% url "check_out_delete" room.id %} " class="btn btn-danger">CANCEL</a>
+            </div>
+            
+        </div>
+    </div> -->
+    {% endfor %}
+</div>
+{% endblock content %}
