@@ -27,12 +27,7 @@ class Room(models.Model):
         ('suite', 'Suite Room'),
         ('delux', 'Delux Room'),
     ]
-    
-    STATUS = [
-        ('booked','Booked'),
-        ('pending','Pending'),
-        ('canceled','Canceled'),
-    ]
+ 
 
     room_type = models.CharField(
         max_length=10, choices=ROOM_TYPES, help_text='Select the type of room.')
@@ -52,7 +47,6 @@ class Room(models.Model):
     no_of_bath = models.PositiveBigIntegerField(
         null=True, help_text='Specify number of Baths')
     photos = models.ImageField(upload_to='images/', help_text='Upload photos of the room.',default='images/room-1.jpg')
-    booked_room_status = models.CharField(max_length=255,choices=STATUS,default='pending')
     # additional_services = models.TextField(help_text='Specify any additional services offered with the room.')
     # accessibility_features = models.TextField(help_text='Describe any accessibility features of the room.')
     # cancellation_policy = models.TextField(help_text='Describe the hotel\'s cancellation policy for bookings made for this room.')
@@ -63,9 +57,16 @@ class Room(models.Model):
 
 
 class BookRoom(models.Model):
+       
+    STATUS = [
+        ('booked','Booked'),
+        ('pending','Pending'),
+        ('canceled','Canceled'),
+    ]
     generated_id = models.UUIDField(default=uuid.uuid4)
     user = models.ForeignKey(Person, on_delete=models.CASCADE)
     room = models.ForeignKey(Room, on_delete=models.CASCADE)
+    booked_room_status = models.CharField(max_length=255,choices=STATUS,default='pending')
     date_booked = models.DateTimeField(auto_now=True)
     
     def __str__(self):
